@@ -1,0 +1,11 @@
+# this is a comment
+drop nElectron
+drop Electron_*
+drop nMuon
+drop Muon_*
+drop nPhoton
+drop Photon_*
+drop nTrigObj
+drop TrigObj_*
+drop HLT*
+drop Flag_*
