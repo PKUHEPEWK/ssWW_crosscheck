@@ -17,7 +17,6 @@ def signal_region(tree, ientry,itree):
 	if (abs(tree.Lepton_eta[0])>2.4 and abs(tree.Lepton_pdgId[0])==11) or (abs(tree.Lepton_eta[0])>2.5 and abs(tree.Lepton_pdgId[0])==13): return 0
 	if (abs(tree.Lepton_eta[1])>2.4 and abs(tree.Lepton_pdgId[1])==11) or (abs(tree.Lepton_eta[1])>2.5 and abs(tree.Lepton_pdgId[1])==13): return 0
 	if tree.nVetoLepton>0 and tree.VetoLepton_pt[0]>10: return 0
-
 	## jets selection
 	if tree.mjj<500 or tree.detajj<2.5: return 0
 	## MET selection
@@ -33,14 +32,14 @@ def signal_region(tree, ientry,itree):
 	## b veto
 	for ijet in range(0,tree.nJet):
 		if tree.Jet_pt[ijet]>20 and tree.Jet_btagCSVV2[ijet] > 0.8484: 
-			jet_veto = 0
+			jet_veto = 0.
 			break
 		else: continue
 
 	## tau veto
 	for itau in range(0,tree.nTau):
                 if tree.Tau_pt[itau] > 18 and tree.Tau_rawIso[itau]>=1 and math.sqrt((tree.Tau_eta[itau]-tree.Lepton_eta[0])*(tree.Tau_eta[itau]-tree.Lepton_eta[0]) + (abs(abs(tree.Tau_phi[itau]-tree.Lepton_phi[0]) - math.pi)- math.pi)*(abs(abs(tree.Tau_phi[itau]-tree.Lepton_phi[0]) - math.pi)- math.pi)) >=0.3 and math.sqrt((tree.Tau_eta[itau]-tree.Lepton_eta[1])*(tree.Tau_eta[itau]-tree.Lepton_eta[1]) + (abs(abs(tree.Tau_phi[itau]-tree.Lepton_phi[1]) - math.pi)- math.pi)*(abs(abs(tree.Tau_phi[itau]-tree.Lepton_phi[1]) - math.pi)- math.pi)) >=0.3:
-                        tau_veto = 0
+                        tau_veto = 0.
                         break
                 else: continue
 
