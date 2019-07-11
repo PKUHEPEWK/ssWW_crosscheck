@@ -32,7 +32,7 @@ def signal_region(tree, ientry,itree):
 	
 	## b veto
 	for ijet in range(0,tree.nJet):
-		if tree.Jet_pt[ijet]>20 and tree.Jet_btagCSVV2 > 0.8484: 
+		if tree.Jet_pt[ijet]>20 and tree.Jet_btagCSVV2[ijet] > 0.8484: 
 			jet_veto = 0
 			break
 		else: continue
