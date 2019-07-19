@@ -1,0 +1,2 @@
+MC_samples_name = ['Zg','Wg_MADGRAPHMLM','WZTo2L2Q','WZTo3LNu','ZZTo2L2Nu','ZZTo2L2Q','ZZTo4L','ZZZ','WZZ','WWZ','WWW','WWTo2L2Nu_DoubleScattering','WpWpJJ_QCD','WpWpJJ_EWK']
+MC_samples_files = [23,57,24,35,12,20,9,3,3,2,3,19,12,16]

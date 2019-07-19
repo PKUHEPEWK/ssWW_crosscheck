@@ -32,8 +32,8 @@ def setTDRStyle():
   tdrStyle.SetFrameLineWidth(1);
 
   ## For the histo:
-  tdrStyle.SetHistFillColor(0);
-  tdrStyle.SetHistFillStyle(1);
+#  tdrStyle.SetHistFillColor(0);
+#  tdrStyle.SetHistFillStyle(1);
   tdrStyle.SetHistLineColor(1);
   tdrStyle.SetHistLineStyle(0);
   tdrStyle.SetHistLineWidth(0);
@@ -41,10 +41,7 @@ def setTDRStyle():
   ## tdrStyle->SetNumberContours(Int_t number = 20);
 
   tdrStyle.SetEndErrorSize(2);
-  ##tdrStyle->SetErrorMarker(20);
-  ##tdrStyle->SetErrorX(0.);
   tdrStyle.SetErrorX(0.5);
- 
   tdrStyle.SetMarkerStyle(20);
 
   ##For the fit/function:
