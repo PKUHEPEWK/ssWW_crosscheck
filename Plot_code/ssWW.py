@@ -84,11 +84,12 @@ for i in range(0,len(name)):
 	for entry in range(0,tree[i].GetEntries()):
 	#	weight = cuts.top_region(tree[i],entry,i)
 	#	weight = cuts.lowmjj_region(tree[i],entry,i)
-		weight = cuts.signal_region(tree[i],entry,i)
+	#	weight = cuts.signal_region(tree[i],entry,i)
+		weight = cuts.WZ_region(tree[i],entry,i)
 		if tree[i].mjj<2000:h_mjj[i].Fill(tree[i].mjj, weight)
 		else:h_mjj[i].Fill(1999, weight)
 	#	if tree[i].mll<320:h_mll[i].Fill(tree[i].mll, weight)
 	#	else:h_mll[i].Fill(319, weight)
 
 #c_mll = plot.draw_plots(h_mll, 1, 'mll')
-c_mjj = plot.draw_plots(h_mjj, 0, 'mjj')
+c_mjj = plot.draw_plots(h_mjj, 1, 'mjj')

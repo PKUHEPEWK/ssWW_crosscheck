@@ -81,7 +81,7 @@ def draw_plots(hist_array =[], draw_data=0, x_name=''):
 	for i in range(1,16):
 		max_yields_temp = h_stack.GetStack().Last().GetBinContent(i)
 		if max_yields_temp>max_yields:max_yields=max_yields_temp
-	h_stack.SetMaximum(max_yields*1.6)
+	h_stack.SetMaximum(max_yields*2.)
 	
 	##MC error
 	h_error = h_stack.GetStack().Last()

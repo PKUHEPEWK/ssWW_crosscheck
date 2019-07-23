@@ -1,9 +1,9 @@
 import ROOT
 
 #directory = '/eos/user/m/melu/ssWW_2017/Smaller_ntuple/'
-directory = '/eos/user/m/melu/ssWW_2017/Signal_ntuple/'
+#directory = '/eos/user/m/melu/ssWW_2017/Signal_ntuple/'
 #directory = '/eos/user/m/melu/ssWW_2017/Lowmjj_ntuple/'
-#directory = '/eos/user/m/melu/ssWW_2017/WZ_ntuple/'
+directory = '/eos/user/m/melu/ssWW_2017/WZ_ntuple/'
 def DPS_set():
 	print 'combining DPS root file'
 	chain = ROOT.TChain("Events")
