@@ -18,3 +18,6 @@ draw plot
 
 ssWW.py:
 main python file to run
+
+
+trash
