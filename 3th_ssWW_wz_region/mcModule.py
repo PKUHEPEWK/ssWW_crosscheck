@@ -30,9 +30,9 @@ class mcProducer(Module):
 		if leptons[2].pt<10: return False
 		if event.nLepton>3 and leptons[3].pt>10: return False
 #		if sign(leptons[0].pdgId)+sign(leptons[1].pdgId) == 0: return False
-		if (abs(leptons[0].eta)>2.4 and abs(leptons[0].pdgId)==11) or (abs(leptons[0].eta)>2.5 and abs(leptons[0].pdgId)==13): return False
-		if (abs(leptons[1].eta)>2.4 and abs(leptons[1].pdgId)==11) or (abs(leptons[1].eta)>2.5 and abs(leptons[1].pdgId)==13): return False
-		if (abs(leptons[2].eta)>2.4 and abs(leptons[2].pdgId)==11) or (abs(leptons[2].eta)>2.5 and abs(leptons[2].pdgId)==13): return False
+		if (abs(leptons[0].eta)>2.5 and abs(leptons[0].pdgId)==11) or (abs(leptons[0].eta)>2.4 and abs(leptons[0].pdgId)==13): return False
+		if (abs(leptons[1].eta)>2.5 and abs(leptons[1].pdgId)==11) or (abs(leptons[1].eta)>2.4 and abs(leptons[1].pdgId)==13): return False
+		if (abs(leptons[2].eta)>2.5 and abs(leptons[2].pdgId)==11) or (abs(leptons[2].eta)>2.4 and abs(leptons[2].pdgId)==13): return False
 
 		cleanjets = Collection(event, "CleanJet")
 		if event.mjj < 500 or event.detajj < 2.5: return False
@@ -49,9 +49,9 @@ class mcProducer(Module):
 #		for ijet in cleanjets:
 #			if jets[ijet].pt > 20 and jets[ijet].btagCSVV2 > 0.8484: return False
 
-		taus = Collection(event, "Tau")
-		for itau in range(0,len(taus)):
-			if taus[itau].pt > 18 and taus[itau].rawIso>=1 and math.sqrt((taus[itau].eta-leptons[0].eta)*(taus[itau].eta-leptons[0].eta) + (abs(abs(taus[itau].phi - leptons[0].phi) - math.pi)- math.pi)*(abs(abs(taus[itau].phi - leptons[0].phi) - math.pi)- math.pi)) >=0.3 and math.sqrt((taus[itau].eta-leptons[1].eta)*(taus[itau].eta-leptons[1].eta) + (abs(abs(taus[itau].phi - leptons[1].phi) - math.pi)- math.pi)*(abs(abs(taus[itau].phi - leptons[1].phi) - math.pi)- math.pi)) >=0.3:return False
+#		taus = Collection(event, "Tau")
+#		for itau in range(0,len(taus)):
+#			if taus[itau].pt > 18 and taus[itau].rawIso>=1 and math.sqrt((taus[itau].eta-leptons[0].eta)*(taus[itau].eta-leptons[0].eta) + (abs(abs(taus[itau].phi - leptons[0].phi) - math.pi)- math.pi)*(abs(abs(taus[itau].phi - leptons[0].phi) - math.pi)- math.pi)) >=0.3 and math.sqrt((taus[itau].eta-leptons[1].eta)*(taus[itau].eta-leptons[1].eta) + (abs(abs(taus[itau].phi - leptons[1].phi) - math.pi)- math.pi)*(abs(abs(taus[itau].phi - leptons[1].phi) - math.pi)- math.pi)) >=0.3:return False
 
 		self.out.fillBranch("zepplep1",zepplep1)
 	        self.out.fillBranch("zepplep2",zepplep2)

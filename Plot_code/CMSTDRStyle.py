@@ -41,7 +41,7 @@ def setTDRStyle():
   ## tdrStyle->SetNumberContours(Int_t number = 20);
 
   tdrStyle.SetEndErrorSize(2);
-  tdrStyle.SetErrorX(0.5);
+  tdrStyle.SetErrorX(0.);
   tdrStyle.SetMarkerStyle(20);
 
   ##For the fit/function:

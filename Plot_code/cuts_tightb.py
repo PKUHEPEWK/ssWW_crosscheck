@@ -47,7 +47,7 @@ def signal_region(tree, ientry,itree):
 	bveto_sf = 1.
 	for ijet in tree.CleanJet_jetIdx:
 	#	if tree.Jet_pt[ijet]>20 and abs(tree.Jet_eta[ijet])<2.4 and tree.Jet_btagCSVV2[ijet] > 0.8484: 
-		if tree.Jet_pt[ijet]>20 and abs(tree.Jet_eta[ijet])<2.4 and tree.Jet_btagDeepB[ijet]>0.4941: 
+		if tree.Jet_pt[ijet]>20 and abs(tree.Jet_eta[ijet])<2.4 and tree.Jet_btagDeepB[ijet]>0.1522: 
 			return 0
 		if itree<16 and tree.Jet_pt[ijet]>20 and abs(tree.Jet_eta[ijet])<2.4: 
 			bveto_sf = bveto_sf*(1 - tree.Jet_btagSF[ijet]*btag_weight.btag_weight(tree.Jet_partonFlavour[ijet],tree.Jet_pt[ijet],tree.Jet_eta[ijet]))/(1 - btag_weight.btag_weight(tree.Jet_partonFlavour[ijet],tree.Jet_pt[ijet],tree.Jet_eta[ijet]))
@@ -123,7 +123,7 @@ def lowmjj_region(tree, ientry,itree):
 	## b veto
 	bveto_sf = 1.
 	for ijet in tree.CleanJet_jetIdx:
-		if tree.Jet_pt[ijet]>20 and abs(tree.Jet_eta[ijet])<2.4 and tree.Jet_btagDeepB[ijet]>0.4941:
+		if tree.Jet_pt[ijet]>20 and abs(tree.Jet_eta[ijet])<2.4 and tree.Jet_btagDeepB[ijet]>0.1522:
                         return 0
                 if itree<16 and tree.Jet_pt[ijet]>20 and abs(tree.Jet_eta[ijet])<2.4:
                         bveto_sf = bveto_sf*(1 - tree.Jet_btagSF[ijet]*btag_weight.btag_weight(tree.Jet_partonFlavour[ijet],tree.Jet_pt[ijet],tree.Jet_eta[ijet]))/(1 - btag_weight.btag_weight(tree.Jet_partonFlavour[ijet],tree.Jet_pt[ijet],tree.Jet_eta[ijet]))
@@ -203,10 +203,10 @@ def top_region(tree, ientry,itree):
 	bveto_sf = 1.
 	btag_flag = 0.
 	for ijet in tree.CleanJet_jetIdx:
-		if tree.Jet_pt[ijet]>20 and abs(tree.Jet_eta[ijet])<2.4 and tree.Jet_btagDeepB[ijet]>0.4941:
+		if tree.Jet_pt[ijet]>20 and abs(tree.Jet_eta[ijet])<2.4 and tree.Jet_btagDeepB[ijet]>0.1522:
 			btag_flag = 1.
                 if itree<16 and tree.Jet_pt[ijet]>20 and abs(tree.Jet_eta[ijet])<2.4:
-			if tree.Jet_btagDeepB[ijet]>0.4941:bveto_sf = bveto_sf*tree.Jet_btagSF[ijet]
+			if tree.Jet_btagDeepB[ijet]>0.1522:bveto_sf = bveto_sf*tree.Jet_btagSF[ijet]
 			else:
 	                        bveto_sf = bveto_sf*(1 - tree.Jet_btagSF[ijet]*btag_weight.btag_weight(tree.Jet_partonFlavour[ijet],tree.Jet_pt[ijet],tree.Jet_eta[ijet]))/(1 - btag_weight.btag_weight(tree.Jet_partonFlavour[ijet],tree.Jet_pt[ijet],tree.Jet_eta[ijet]))
                         continue
@@ -316,7 +316,7 @@ def WZ_region(tree, ientry,itree):
 	#b veto
 	bveto_sf = 1.
         for ijet in tree.CleanJet_jetIdx:
-                if tree.Jet_pt[ijet]>20 and abs(tree.Jet_eta[ijet])<2.4 and tree.Jet_btagDeepB[ijet]>0.4941:
+                if tree.Jet_pt[ijet]>20 and abs(tree.Jet_eta[ijet])<2.4 and tree.Jet_btagDeepB[ijet]>0.1522:
                         return 0
                 if itree<16 and tree.Jet_pt[ijet]>20 and abs(tree.Jet_eta[ijet])<2.4:
                         bveto_sf = bveto_sf*(1 - tree.Jet_btagSF[ijet]*btag_weight.btag_weight(tree.Jet_partonFlavour[ijet],tree.Jet_pt[ijet],tree.Jet_eta[ijet]))/(1 - btag_weight.btag_weight(tree.Jet_partonFlavour[ijet],tree.Jet_pt[ijet],tree.Jet_eta[ijet]))

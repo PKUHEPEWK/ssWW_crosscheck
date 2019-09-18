@@ -1,7 +1,7 @@
 import ROOT
 from array import array
 
-directory = '/eos/cms/store/group/phys_higgs/cmshww/amassiro/HWWNano/Fall2017_nAOD_v1_Full2017v2/MCl1loose2017v2__MCCorr2017__btagPerEvent__l2loose__l2tightOR2017/nanoLatino_TTWjets__part'
+directory = '/eos/cms/store/group/phys_higgs/cmshww/amassiro/HWWNano/Fall2017_102X_nAODv4_Full2017v5/MCl1loose2017v5__MCCorr2017v5__l2loose__l2tightOR2017v5/nanoLatino_TTWjets__part'
 
 bcbins = array('f')
 bcbins.append(20)
@@ -43,7 +43,7 @@ h2_btag_eff_num_c = ROOT.TH2F('h2_BTaggingEff_Num_c',';p_{T} [GeV];#eta',10,bcbi
 h2_btag_eff_num_usdg = ROOT.TH2F('h2_BTaggingEff_Num_usdg',';p_{T} [GeV];#eta',4,lbins,3,lbins_eta)
 
 chain = ROOT.TChain("Events")
-for i in range(0,135):
+for i in range(0,9):
 	chain.Add(directory+str(i)+'.root')
 
 ii=0
@@ -53,13 +53,13 @@ for entry in range(0,chain.GetEntries()):
 	for ijet in chain.CleanJet_jetIdx:
 		if chain.Jet_partonFlavour[ijet]==5:
 			h2_btag_eff_denom_b.Fill(chain.Jet_pt[ijet],chain.Jet_eta[ijet])
-			if chain.Jet_btagDeepB[ijet]>0.1522: h2_btag_eff_num_b.Fill(chain.Jet_pt[ijet],chain.Jet_eta[ijet])
+			if chain.Jet_btagDeepB[ijet]>0.4941: h2_btag_eff_num_b.Fill(chain.Jet_pt[ijet],chain.Jet_eta[ijet])
 		elif chain.Jet_partonFlavour[ijet]==4:
 			h2_btag_eff_denom_c.Fill(chain.Jet_pt[ijet],chain.Jet_eta[ijet])
-                        if chain.Jet_btagDeepB[ijet]>0.1522: h2_btag_eff_num_c.Fill(chain.Jet_pt[ijet],chain.Jet_eta[ijet])
+                        if chain.Jet_btagDeepB[ijet]>0.4941: h2_btag_eff_num_c.Fill(chain.Jet_pt[ijet],chain.Jet_eta[ijet])
 		else:
 			h2_btag_eff_denom_usdg.Fill(chain.Jet_pt[ijet],chain.Jet_eta[ijet])
-                        if chain.Jet_btagDeepB[ijet]>0.1522: h2_btag_eff_num_usdg.Fill(chain.Jet_pt[ijet],chain.Jet_eta[ijet])
+                        if chain.Jet_btagDeepB[ijet]>0.4941: h2_btag_eff_num_usdg.Fill(chain.Jet_pt[ijet],chain.Jet_eta[ijet])
 	ii = ii+1
 
 f = ROOT.TFile('bjetmap.root','RECREATE')

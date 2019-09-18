@@ -28,8 +28,8 @@ class mcProducer(Module):
 		leptons = Collection(event, "Lepton")
 		if event.nLepton>2 and leptons[2].pt>10: return False
 		if sign(leptons[0].pdgId)+sign(leptons[1].pdgId) == 0: return False
-		if (abs(leptons[0].eta)>2.4 and abs(leptons[0].pdgId)==11) or (abs(leptons[0].eta)>2.5 and abs(leptons[0].pdgId)==13): return False
-		if (abs(leptons[1].eta)>2.4 and abs(leptons[1].pdgId)==11) or (abs(leptons[1].eta)>2.5 and abs(leptons[1].pdgId)==13): return False
+		if (abs(leptons[0].eta)>2.5 and abs(leptons[0].pdgId)==11) or (abs(leptons[0].eta)>2.4 and abs(leptons[0].pdgId)==13): return False
+		if (abs(leptons[1].eta)>2.5 and abs(leptons[1].pdgId)==11) or (abs(leptons[1].eta)>2.4 and abs(leptons[1].pdgId)==13): return False
 
 		cleanjets = Collection(event, "CleanJet")
 		if event.mjj < 500 or event.detajj < 2.5: return False
